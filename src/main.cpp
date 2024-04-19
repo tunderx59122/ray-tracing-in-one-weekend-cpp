@@ -1,11 +1,4 @@
-// Copyright (c) 2020 Chris Ohk
 
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and are not conveying any rights to any intellectual
-// property of any third parties.
-
-// It is based on Ray Tracing in One Weekend book.
-// References: https://raytracing.github.io
 
 #include "camera.hpp"
 #include "common.hpp"
@@ -33,7 +26,6 @@ int main()
     const int image_height = 100;
     const int samples_per_pixel = 100;
 
-    std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
     const vec3 lower_left_corner{-2.0, -1.0, -1.0};
     const vec3 horizontal{4.0, 0.0, 0.0};
@@ -48,7 +40,6 @@ int main()
 
     for (int j = image_height - 1; j >= 0; --j)
     {
-        std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
 
         for (int i = 0; i < image_width; ++i)
         {
@@ -62,7 +53,6 @@ int main()
                 color += ray_color(r, world);
             }
 
-            color.write_color(std::cout, samples_per_pixel);
         }
     }
 
